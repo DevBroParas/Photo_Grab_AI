@@ -1,0 +1,74 @@
+# =========================
+# Dependencies (All Projects)
+# =========================
+node_modules/
+**/node_modules/
+
+# =========================
+# Environment Variables
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# Logs
+# =========================
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# =========================
+# Build Outputs
+# =========================
+dist/
+build/
+**/dist/
+**/build/
+.out/
+coverage/
+
+# =========================
+# Vite Specific
+# =========================
+.vite/
+vite.svg
+
+# =========================
+# TypeScript
+# =========================
+*.tsbuildinfo
+
+# =========================
+# AI / Model Artifacts (Optional)
+# =========================
+*.onnx
+*.pt
+*.pth
+*.bin
+models/
+checkpoints/
+
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# IDE / Editor
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+# Temporary Files
+# =========================
+.cache/
+tmp/
+temp/
