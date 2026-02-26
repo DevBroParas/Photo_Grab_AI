@@ -20,11 +20,11 @@ export const authCallback = (req: Request, res: Response) => {
     sameSite: "lax",
   });
 
-//   res.redirect("http://localhost:5173/dashboard");
-res.json({
-  message: "Login successful",
-  user,
-});
+  res.redirect("http://localhost:5173/dashboard");
+// res.json({
+//   message: "Login successful",
+//   user,
+// });
 };
 
 export const logout = (_req: Request, res: Response) => {
