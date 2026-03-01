@@ -1,10 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { api } from "../services/api";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const CreateEvent = () => {
   const [name, setName] = useState("");
+  const { user, loading, logout } = useAuth();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!loading && !user) {
+      navigate("/");
+      return;
+    }
+  }, [user, loading]);
 
   const handleSubmit = async () => {
     try {

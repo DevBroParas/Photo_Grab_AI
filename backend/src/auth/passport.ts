@@ -48,15 +48,15 @@ passport.use(
       clientID: process.env.GITHUB_CLIENT_ID!,
       clientSecret: process.env.GITHUB_CLIENT_SECRET!,
       callbackURL: "/api/auth/github/callback",
+      scope: ["user:email"],
     },
     async (_accessToken, _refreshToken, profile, done) => {
       try {
-        const email = profile.emails?.[0]?.value;
+        let email = profile.emails?.[0]?.value;
 
         if (!email) {
-          return done(new Error("No email from GitHub"), undefined);
+          email = `${profile.username}@github.local`;
         }
-
         const existingUser = await db
           .select()
           .from(users)
