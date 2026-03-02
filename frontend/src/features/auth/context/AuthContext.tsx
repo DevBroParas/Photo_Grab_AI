@@ -1,16 +1,18 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { api } from "../services/api";
+import { api } from "../../../services/api";
 
 interface User {
   id: string;
   name: string;
   email: string;
+
 }
 
 interface AuthContextType {
   user: User | null;
   loading: boolean;
   logout: () => Promise<void>;
+  refreshUser: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | null>(null);
@@ -41,7 +43,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, loading, logout }}>
+    <AuthContext.Provider value={{ user, loading, logout,refreshUser: fetchUser }}>
       {children}
     </AuthContext.Provider>
   );

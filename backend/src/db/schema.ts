@@ -13,7 +13,8 @@ export const users = pgTable("users", {
   id: uuid("id").defaultRandom().primaryKey(),
   name: text("name").notNull(),
   email: text("email").notNull().unique(),
-  provider: text("provider").notNull(), // google | github
+  password: text("password"),
+  provider: text("provider").notNull(), 
   providerId: text("provider_id").notNull(),
   createdAt: timestamp("created_at").defaultNow(),
 });

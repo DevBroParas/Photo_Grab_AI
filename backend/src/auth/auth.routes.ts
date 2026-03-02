@@ -1,6 +1,6 @@
 import { Router } from "express";
 import passport from "./passport.js";
-import { authCallback, logout, getCurrentUser } from "./auth.controller.js";
+import { authCallback, logout, getCurrentUser, register, login } from "./auth.controller.js";
 import { protect } from "../middleware/auth.middleware.js";
 
 const router = Router();
@@ -18,6 +18,9 @@ router.get(
   passport.authenticate("github", { session: false }),
   authCallback
 );
+
+router.post("/register", register)
+router.post("/login", login)
 
 router.post("/logout", logout);
 router.get("/me", protect, getCurrentUser);
