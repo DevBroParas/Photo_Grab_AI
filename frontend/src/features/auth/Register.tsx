@@ -76,7 +76,7 @@ export default function Register() {
               type="name"
               placeholder="Name"
               onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#1068dc]"
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#686df4]"
             />
 
             <input
@@ -84,7 +84,7 @@ export default function Register() {
               type="email"
               placeholder="Email"
               onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#1068dc]"
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#686df4]"
             />
 
 
@@ -93,12 +93,12 @@ export default function Register() {
               type="password"
               placeholder="Password"
               onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#1068dc]"
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#686df4]"
             />
 
             <button
               type="submit"
-              className="w-full py-3 rounded-lg bg-[#1068dc] text-white font-semibold hover:bg-[#0d57b7] transition"
+              className="w-full py-3 rounded-lg bg-[#686df4] text-white font-semibold hover:bg-[#686df4] transition"
             >
               Register
             </button>

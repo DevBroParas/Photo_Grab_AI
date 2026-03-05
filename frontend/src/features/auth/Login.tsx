@@ -61,16 +61,10 @@ const Login = () => {
         <div className="w-105 bg-white p-10 rounded-2xl shadow-lg">
 
           {/* LOGO */}
-          <h1
-            className="text-4xl font-bold text-center mb-2 text-white"
-            style={{ WebkitTextStroke: "1.5px #1068dc" }}
-          >
-            Grab Pic
-          </h1>
+          <div className="flex items-center justify-center gap"><img src="../src/assets/Logo_3.png" alt="logo" className="h-10" /><h2 className="text-2xl font-bold text-gray-500 mr-3">Grab Pic</h2></div>
 
-          <h2 className="text-xl font-semibold text-center mb-8 text-gray-700">
-            Welcome Back 👋
-          </h2>
+          <h2 className="flex items-center justify-center text-2xl font-semibold text-gray-500 p-3">Login</h2>
+
 
           {/* LOCAL LOGIN */}
           <form onSubmit={handleLocalLogin} className="space-y-4">
@@ -80,7 +74,7 @@ const Login = () => {
               type="email"
               placeholder="Email"
               onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#1068dc]"
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#686df4]"
             />
 
             <input
@@ -88,12 +82,12 @@ const Login = () => {
               type="password"
               placeholder="Password"
               onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#1068dc]"
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#686df4]"
             />
 
             <button
               type="submit"
-              className="w-full py-3 rounded-lg bg-[#1068dc] text-white font-semibold hover:bg-[#0d57b7] transition"
+              className="w-full py-3 rounded-lg bg-[#1068dc] text-white font-semibold hover:bg-[#686df4] transition"
             >
               Login
             </button>
@@ -126,7 +120,7 @@ const Login = () => {
           {/* REGISTER */}
           <p className="text-center text-sm text-gray-600 mt-6">
             Don't have an account?{" "}
-            <Link to="/register" className="text-[#1068dc] font-medium hover:underline">
+            <Link to="/register" className="text-[#686df4] font-medium hover:underline">
               Register
             </Link>
           </p>

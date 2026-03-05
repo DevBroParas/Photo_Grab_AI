@@ -20,7 +20,7 @@ const MainLayout = () => {
           className="flex items-center gap-3 cursor-pointer relative"
           onClick={() => setOpen(!open)}
         >
-          <span className="text-l font-semibold">Hey {user?.name} 👋</span>
+          <span className="text-xl font-semibold">Hey {user?.name} 👋</span>
 
           {/* Avatar */}
           <div className="w-10 h-10 rounded-full bg-[#686df4] flex items-center justify-center font-bold text-white">
