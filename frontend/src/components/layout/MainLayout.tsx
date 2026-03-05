@@ -1,5 +1,3 @@
-// src/components/layout/MainLayout.tsx
-
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { useAuth } from "../../features/auth/context/AuthContext";
@@ -11,86 +9,34 @@ const MainLayout = () => {
   const firstLetter = user?.name?.charAt(0).toUpperCase();
 
   return (
-    <div style={{ minHeight: "100vh", background: "#f4f4f4" }}>
-      {/* 🔥 Navbar */}
-      <nav
-        style={{
-          height: "70px",
-          background: "#111",
-          color: "#fff",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "0 40px",
-          position: "relative",
-        }}
-      >
-        <h2 style={{ margin: 0 }}>Event AI</h2>
+    <div className="min-h-screen">
+
+      {/* Navbar */}
+      <nav className="h-20 bg-white flex items-center justify-between px-10 shadow-md">
+        <div className="flex items-center"><img src="../src/assets/Logo_3.png" alt="logo" className="h-20" /><h2 className="text-3xl font-bold text-gray-500">Grab Pic</h2></div>
 
         {/* User Section */}
         <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "12px",
-            cursor: "pointer",
-            position: "relative",
-          }}
+          className="flex items-center gap-3 cursor-pointer relative"
           onClick={() => setOpen(!open)}
         >
+          <span className="text-l font-semibold">Hey {user?.name} 👋</span>
+
           {/* Avatar */}
-          <div
-            style={{
-              width: "40px",
-              height: "40px",
-              borderRadius: "50%",
-              background: "#3b82f6",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontWeight: "bold",
-              fontSize: "16px",
-              color: "#fff",
-            }}
-          >
+          <div className="w-10 h-10 rounded-full bg-[#686df4] flex items-center justify-center font-bold text-white">
             {firstLetter}
           </div>
 
-          <span>Hey {user?.name}</span>
-
           {/* Dropdown */}
           {open && (
-            <div
-              style={{
-                position: "absolute",
-                top: "60px",
-                right: 0,
-                background: "#fff",
-                color: "#111",
-                borderRadius: "8px",
-                boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
-                width: "220px",
-                padding: "15px",
-                zIndex: 1000,
-              }}
-            >
-              <p style={{ margin: "0 0 10px 0", fontWeight: 500 }}>
-                {user?.email}
-              </p>
+            <div className="absolute top-15 right-0 bg-white text-black rounded-lg shadow-lg w-55 p-4 z-50">
+              <p className="mb-2 font-medium">{user?.email}</p>
 
-              <hr style={{ margin: "10px 0" }} />
+              <hr className="my-2" />
 
               <button
                 onClick={logout}
-                style={{
-                  width: "100%",
-                  padding: "8px",
-                  background: "#ef4444",
-                  border: "none",
-                  color: "#fff",
-                  borderRadius: "6px",
-                  cursor: "pointer",
-                }}
+                className="w-full py-2 bg-red-500 hover:bg-red-600 text-white rounded-md transition"
               >
                 Logout
               </button>
@@ -99,8 +45,8 @@ const MainLayout = () => {
         </div>
       </nav>
 
-      {/* 🔥 Page Content */}
-      <main style={{ padding: "40px" }}>
+      {/* Page Content */}
+      <main className="p-10">
         <Outlet />
       </main>
     </div>
