@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getEvents } from "../../../services/EventService";
 import { toast } from "sonner";
 import EventCard from "./EventCard";
+import GlobalLoader from "../../../components/ui/GlobalLoader";
 
 type Event = {
   id: string;
@@ -28,7 +29,7 @@ const GetEvents = () => {
     fetchEvent();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <GlobalLoader />;
 
   return (
     <div>

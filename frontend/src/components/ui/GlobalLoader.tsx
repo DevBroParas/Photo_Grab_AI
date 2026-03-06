@@ -1,28 +1,9 @@
-
 const GlobalLoader = () => {
   return (
-    <div style={styles.container}>
-      <div style={styles.spinner}></div>
+    <div className="fixed inset-0 flex items-center justify-center bg-white/70 z-[9999]">
+      <div className="w-12 h-12 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin"></div>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    height: "100vh",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#f9fafb",
-  },
-  spinner: {
-    width: "50px",
-    height: "50px",
-    border: "5px solid #ddd",
-    borderTop: "5px solid #3b82f6",
-    borderRadius: "50%",
-    animation: "spin 1s linear infinite",
-  },
 };
 
 export default GlobalLoader;

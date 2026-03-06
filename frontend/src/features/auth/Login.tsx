@@ -30,8 +30,8 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      await loginService(form);
       setLoading(true);
+      await loginService(form);
       await refreshUser();
       navigate("/dashboard");
       toast.success('Welcome back!')

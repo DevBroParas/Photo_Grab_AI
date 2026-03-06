@@ -32,8 +32,8 @@ export default function Register() {
     e.preventDefault();
 
     try {
-      await api.post("/auth/register", form);
       setLoading(true);
+      await api.post("/auth/register", form);
       await refreshUser();
       navigate("/dashboard");
       toast.success('Hello new user!')

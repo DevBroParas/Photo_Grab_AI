@@ -17,7 +17,6 @@ export default function Button({
   className = "",
   ...props
 }: ButtonProps) {
-
   const baseStyle =
     "font-semibold transition focus:outline-none inline-flex items-center justify-center";
 
@@ -29,8 +28,7 @@ export default function Button({
     outline:
       "border border-[#686df4] text-[#686df4] hover:bg-[#686df4] hover:text-white",
 
-    ghost:
-      "text-[#686df4] hover:bg-[#686df4]/10",
+    ghost: "text-[#686df4] hover:bg-[#686df4]/10",
   };
 
   const sizes = {
@@ -52,15 +50,17 @@ export default function Button({
       } ${className}`}
       {...props}
     >
-      {loading ? (
-        <span className="flex gap-1 items-center">
-          <span className="w-1.5 h-1.5 bg-current rounded-full animate-bounce"></span>
-          <span className="w-1.5 h-1.5 bg-current rounded-full animate-bounce [animation-delay:0.2s]"></span>
-          <span className="w-1.5 h-1.5 bg-current rounded-full animate-bounce [animation-delay:0.4s]"></span>
-        </span>
-      ) : (
-        children
-      )}
+      <span className="flex items-center gap-2">
+        {children}
+
+        {loading && (
+          <span className="flex gap-1 items-center">
+            <span className="w-1.5 h-1.5 bg-current rounded-full animate-bounce"></span>
+            <span className="w-1.5 h-1.5 bg-current rounded-full animate-bounce [animation-delay:0.2s]"></span>
+            <span className="w-1.5 h-1.5 bg-current rounded-full animate-bounce [animation-delay:0.4s]"></span>
+          </span>
+        )}
+      </span>
     </button>
   );
 }

@@ -6,7 +6,7 @@ const dashboard = () => {
     return ( <div>
         <h1>Dashboard</h1>
         <CreateEventButton />
-        <GetEvents />   
+        <GetEvents /> 
     </div> );
 }
  
