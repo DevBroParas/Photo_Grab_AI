@@ -19,6 +19,8 @@ export default function Register() {
     password: "",
   });
 
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({
       ...form,
@@ -31,11 +33,14 @@ export default function Register() {
 
     try {
       await api.post("/auth/register", form);
+      setLoading(true);
       await refreshUser();
       navigate("/dashboard");
       toast.success('Hello new user!')
     } catch (error: any) {
       alert(error.response?.data?.message || "Something went wrong");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -100,6 +105,8 @@ export default function Register() {
             <Button
               type="submit"
               className="w-full"
+              variant="primary"
+              loading={loading}
             >
               Register
             </Button>

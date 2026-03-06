@@ -32,6 +32,7 @@ export const getCurrentUser = (req: Request, res: Response) => {
   res.json(req.user);
 };
 
+
 export const register = async (req: Request, res: Response) => {
   try {
     let { name, email, password } = req.body;

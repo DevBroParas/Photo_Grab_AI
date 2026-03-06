@@ -17,6 +17,8 @@ const Login = () => {
     password: "",
   });
 
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({
       ...form,
@@ -28,12 +30,15 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const res = await loginService(form);
+      await loginService(form);
+      setLoading(true);
       await refreshUser();
       navigate("/dashboard");
       toast.success('Welcome back!')
     } catch (error: any) {
       toast.error(error.response?.data?.message || "Invalid credentials");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -90,6 +95,8 @@ const Login = () => {
               type="submit"
               className="w-full"
               size="md"
+              variant="primary"
+              loading={loading}
             >
               Login
             </Button>

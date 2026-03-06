@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { useAuth } from "../../features/auth/context/AuthContext";
+import BrandLogo from "../../assets/Logo_3.png"
 
 const MainLayout = () => {
   const { user, logout } = useAuth();
@@ -13,7 +14,7 @@ const MainLayout = () => {
 
       {/* Navbar */}
       <nav className="h-20 bg-white flex items-center justify-between px-10 shadow-md">
-        <div className="flex items-center"><img src="../src/assets/Logo_3.png" alt="logo" className="h-20" /><h2 className="text-3xl font-bold text-gray-500">Grab Pic</h2></div>
+        <div className="flex items-center"><img src={BrandLogo} alt="logo" className="h-20" /><h2 className="text-3xl font-bold text-gray-500">Grab Pic</h2></div>
 
         {/* User Section */}
         <div

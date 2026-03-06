@@ -7,6 +7,7 @@ import Button from "../../../components/ui/Button";
 
 export default function CreateEventButton() {
     const [open, setOpen] = useState(false);
+    const [loading, setLoading] = useState(false);
     const Navigate = useNavigate();
 
     const [form, setForm] = useState({
@@ -23,8 +24,8 @@ export default function CreateEventButton() {
     const handleCreateEvent =async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            const response = await CreateEvent(form);
-            console.log(response);
+            await CreateEvent(form);
+            setLoading(true);
             setOpen(false);
             Navigate("/upload");
             toast.success('Event created successfully!')
@@ -32,6 +33,8 @@ export default function CreateEventButton() {
              
            } catch (error: any) {
              toast.error(error.response?.data?.message || "Something went wrong")
+           } finally {
+             setLoading(false);
            }
        
     };
@@ -40,6 +43,7 @@ export default function CreateEventButton() {
         <>
             <Button
                 onClick={() => setOpen(true)}
+                loading={loading}
             >
                 Create Event +
             </Button>

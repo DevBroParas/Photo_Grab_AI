@@ -2,6 +2,7 @@
 
 import { Outlet, Link } from "react-router-dom";
 import Button from "../ui/Button";
+import BrandLogo from "../../assets/Logo_3.png"
 
 const PublicLayout = () => {
   return (
@@ -9,7 +10,7 @@ const PublicLayout = () => {
 
       <nav className="h-20 bg-white flex items-center justify-between px-10 shadow-md "
       >
-        <div className="flex items-center"><img src="../src/assets/Logo_3.png" alt="logo" className="h-20" /><h2 className="text-3xl font-bold text-gray-500">Grab Pic</h2></div>
+        <div className="flex items-center"><img src={BrandLogo} alt="logo" className="h-20" /><h2 className="text-3xl font-bold text-gray-500">Grab Pic</h2></div>
 
         <div className="flex gap-5">
           <Link to="/login" >
