@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { api } from "../../services/api";
 import { useAuth } from "./context/AuthContext";
 import loginImage from "../../assets/login.png";
 import googleLogo from "../../assets/Google_logo.svg";
 import githubLogo from "../../assets/Github_logo.svg";
 import { toast } from 'sonner'
+import Button from "../../components/ui/Button";
+import { loginService } from "../../services/AuthService";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -27,12 +28,12 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      await api.post("/auth/login", form);
+      const res = await loginService(form);
       await refreshUser();
       navigate("/dashboard");
       toast.success('Welcome back!')
     } catch (error: any) {
-      alert(error.response?.data?.message || "Invalid credentials");
+      toast.error(error.response?.data?.message || "Invalid credentials");
     }
   };
 
@@ -85,12 +86,13 @@ const Login = () => {
               className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#686df4]"
             />
 
-            <button
+            <Button
               type="submit"
-              className="w-full py-3 rounded-lg bg-[#1068dc] text-white font-semibold hover:bg-[#686df4] transition"
+              className="w-full"
+              size="md"
             >
               Login
-            </button>
+            </Button>
           </form>
 
           {/* Divider */}
@@ -101,21 +103,23 @@ const Login = () => {
           </div>
 
           {/* GOOGLE LOGIN */}
-          <button
+          <Button
             onClick={handleGoogleLogin}
-            className="w-full flex items-center justify-center gap-3 border border-gray-300 py-3 rounded-lg hover:bg-gray-50 transition mb-2"
+            className="w-full flex items-center justify-center gap-3 mb-2"
+            variant="outline"
           >
             <img src={googleLogo} alt="Google" className="w-5 h-5" />
             Continue with Google
-          </button>
+          </Button>
           {/* GITHUB LOGIN */}
-          <button
+          <Button
             onClick={handleGithubLogin}
-            className="w-full flex items-center justify-center gap-3 border border-gray-300 py-3 rounded-lg hover:bg-gray-50 transition"
+            className="w-full flex items-center justify-center gap-3 "
+            variant="outline"
           >
             <img src={githubLogo} alt="github" className="w-5 h-5" />
             Continue with GitHub
-          </button>
+          </Button>
 
           {/* REGISTER */}
           <p className="text-center text-sm text-gray-600 mt-6">

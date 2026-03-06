@@ -6,6 +6,7 @@ import loginImage from "../../assets/login.png";
 import googleLogo from "../../assets/Google_logo.svg";
 import githubLogo from "../../assets/Github_logo.svg";
 import { toast } from 'sonner'
+import Button from "../../components/ui/Button";
 
 
 export default function Register() {
@@ -96,12 +97,12 @@ export default function Register() {
               className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#686df4]"
             />
 
-            <button
+            <Button
               type="submit"
-              className="w-full py-3 rounded-lg bg-[#686df4] text-white font-semibold hover:bg-[#686df4] transition"
+              className="w-full"
             >
               Register
-            </button>
+            </Button>
           </form>
 
           {/* Divider */}
@@ -112,21 +113,23 @@ export default function Register() {
           </div>
 
           {/* GOOGLE LOGIN */}
-          <button
+          <Button
             onClick={handleGoogleRegister}
-            className="w-full flex items-center justify-center gap-3 border border-gray-300 py-3 rounded-lg hover:bg-gray-50 transition mb-2"
+            className="w-full flex items-center justify-center gap-3 mb-2"
+            variant="outline"
           >
             <img src={googleLogo} alt="Google" className="w-5 h-5" />
             Continue with Google
-          </button>
+          </Button>
           {/* GITHUB LOGIN */}
-          <button
+          <Button
             onClick={handleGithubRegister}
-            className="w-full flex items-center justify-center gap-3 border border-gray-300 py-3 rounded-lg hover:bg-gray-50 transition"
+            className="w-full flex items-center justify-center gap-3 "
+            variant="outline"
           >
             <img src={githubLogo} alt="github" className="w-5 h-5" />
             Continue with GitHub
-          </button>
+          </Button>
 
           {/* REGISTER */}
           <p className="text-center text-sm text-gray-600 mt-6">

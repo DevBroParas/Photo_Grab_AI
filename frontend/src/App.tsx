@@ -9,6 +9,7 @@ import { useAuth } from "./features/auth/context/AuthContext.tsx";
 import MainLayout from "./components/layout/MainLayout.tsx";
 import PublicLayout from "./components/layout/PublicLayout.tsx";
 import LandingPage from "./features/landingPage/LandingPage.tsx";
+import UploadPage from "./features/upload/UploadPage.tsx";
 
 
 function App() {
@@ -34,8 +35,7 @@ function App() {
         <Route element={<ProtectedRoute />}>
           <Route element={<MainLayout />}>
             <Route path="/dashboard" element={<Dashboard />} />
-            {/* Add more protected routes here */}
-            {/* <Route path="/profile" element={<Profile />} /> */}
+            <Route path="/upload" element={<UploadPage />} />
           </Route>
         </Route>
 
