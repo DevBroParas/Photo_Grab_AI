@@ -9,8 +9,8 @@ import { useAuth } from "./features/auth/context/AuthContext.tsx";
 import MainLayout from "./components/layout/MainLayout.tsx";
 import PublicLayout from "./components/layout/PublicLayout.tsx";
 import LandingPage from "./features/landingPage/LandingPage.tsx";
-import UploadPage from "./features/upload/UploadPage.tsx";
-
+import EventPage from "./features/upload/EventPage.tsx";
+import NotFound from "./features/404/NotFound.tsx";
 
 function App() {
   const { loading } = useAuth();
@@ -35,9 +35,10 @@ function App() {
         <Route element={<ProtectedRoute />}>
           <Route element={<MainLayout />}>
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/upload" element={<UploadPage />} />
+            <Route path="/events/:eventId" element={<EventPage />} />
           </Route>
         </Route>
+        <Route path="*" element={<NotFound />} />
 
 
 

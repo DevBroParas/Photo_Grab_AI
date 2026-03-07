@@ -4,6 +4,7 @@ import { toast } from "sonner";
 import EventCard from "./EventCard";
 import GlobalLoader from "../../../components/ui/GlobalLoader";
 
+
 type Event = {
   id: string;
   name: string;
@@ -13,6 +14,7 @@ const GetEvents = () => {
   const [data, setData] = useState<Event[]>([]);
   const [loading, setLoading] = useState(false);
 
+
   useEffect(() => {
     const fetchEvent = async () => {
       try {
@@ -20,7 +22,7 @@ const GetEvents = () => {
         const response = await getEvents();
         setData(response);
       } catch (error: any) {
-        toast.error(error);
+        toast.error(error?.message || "Failed to fetch events");
       } finally {
         setLoading(false);
       }
@@ -40,7 +42,10 @@ const GetEvents = () => {
       ) : (
         <div className="grid grid-cols-3 gap-4">
           {data.map((event) => (
-            <EventCard key={event.id} event={event} />
+            <EventCard
+              key={event.id}
+              event={event}
+            />
           ))}
         </div>
       )}
